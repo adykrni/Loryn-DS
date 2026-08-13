@@ -1,0 +1,30 @@
+import type { Meta, StoryObj } from "@storybook/react"
+import { Bar, BarChart, CartesianGrid, XAxis } from "recharts"
+import { ChartContainer, ChartTooltip, ChartTooltipContent } from "@/components/ui/chart"
+
+const chartData = [
+  { month: "Jan", desktop: 186 },
+  { month: "Feb", desktop: 305 },
+  { month: "Mar", desktop: 237 },
+]
+
+const chartConfig = {
+  desktop: { label: "Desktop", color: "var(--primary)" },
+}
+
+const meta: Meta<typeof ChartContainer> = { title: "UI/Chart", component: ChartContainer }
+export default meta
+type Story = StoryObj<typeof ChartContainer>
+
+export const Default: Story = {
+  render: () => (
+    <ChartContainer config={chartConfig} className="min-h-[200px] w-full max-w-md">
+      <BarChart data={chartData}>
+        <CartesianGrid vertical={false} />
+        <XAxis dataKey="month" tickLine={false} axisLine={false} />
+        <ChartTooltip content={<ChartTooltipContent />} />
+        <Bar dataKey="desktop" fill="var(--color-desktop)" radius={4} />
+      </BarChart>
+    </ChartContainer>
+  ),
+}
