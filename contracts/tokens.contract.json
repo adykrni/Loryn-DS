@@ -1,0 +1,18 @@
+{
+  "core": {
+    "color": {
+      "blue-600": "oklch(0.55 0.18 255)",
+      "neutral-0": "oklch(1 0 0)",
+      "neutral-900": "oklch(0.21 0.01 260)"
+    },
+    "radius": {
+      "base": "0.625rem"
+    }
+  },
+  "component": {
+    "primary": "{core.color.blue-600}",
+    "background": "{core.color.neutral-0}",
+    "foreground": "{core.color.neutral-900}",
+    "radius": "{core.radius.base}"
+  }
+}

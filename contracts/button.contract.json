@@ -1,0 +1,28 @@
+{
+  "name": "Button",
+  "props": {
+    "variant": {
+      "type": "enum",
+      "values": ["primary", "secondary", "ghost"],
+      "default": "primary"
+    },
+    "size": {
+      "type": "enum",
+      "values": ["sm", "md", "lg"],
+      "default": "md"
+    },
+    "disabled": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "tokens": {
+    "background": "component.primary",
+    "radius": "core.radius.base"
+  },
+  "a11y": {
+    "role": "button",
+    "focusVisible": true,
+    "disabledAriaDisabled": true
+  }
+}
