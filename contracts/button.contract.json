@@ -1,6 +1,6 @@
 {
   "name": "Button",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Primary interactive control for actions and submissions.",
   "element": "button",
   "props": {
@@ -15,18 +15,12 @@
       "default": "md"
     },
     "disabled": { "type": "boolean", "default": false },
-    "loading": {
-      "type": "boolean",
-      "default": false,
-      "description": "Shows a spinner, sets aria-busy, and blocks interaction."
-    },
-    "asChild": {
-      "type": "boolean",
-      "default": false,
-      "description": "Render as a Radix Slot, passing button semantics to the child element."
-    }
+    "loading":  { "type": "boolean", "default": false, "description": "Spinner + aria-busy; blocks interaction." },
+    "asChild":  { "type": "boolean", "default": false, "description": "Render as Radix Slot." }
   },
+
   "tokens": {
+    "//": "COLOR tokens per variant. Each value is a SEMANTIC token name, never a raw color.",
     "variants": {
       "primary":     { "bg": "primary", "fg": "primary-foreground", "hover": "primary-hover", "active": "primary-active" },
       "secondary":   { "bg": "secondary", "fg": "secondary-foreground", "hover": "secondary-hover" },
@@ -35,20 +29,31 @@
       "ghost":       { "fg": "foreground", "hoverBg": "muted" },
       "destructive": { "bg": "danger", "fg": "danger-foreground", "hover": "danger-hover" }
     },
-    "shared": {
-      "focusRing": "ring",
-      "radius": "radius-md"
-    }
+    "shared": { "focusRing": "ring", "radius": "radius-md" }
   },
+
+  "sizes": {
+    "//": "DIMENSIONAL tokens per size. Read each value off Figma, assign the matching token NAME. Confirm every one against your Figma component.",
+    "sm":   { "height": "spacing-8",  "paddingX": "spacing-3", "fontSize": "text-xs",   "gap": "spacing-1_5", "radius": "radius-sm" },
+    "md":   { "height": "spacing-10", "paddingX": "spacing-4", "fontSize": "text-sm",   "gap": "spacing-2", "radius": "radius-sm"  },
+    "lg":   { "height": "spacing-12", "paddingX": "spacing-5", "fontSize": "text-base", "gap": "spacing-2_5", "radius": "radius-lg"  },
+    "icon": { "height": "spacing-10", "width": "spacing-10", "paddingX": "spacing-0", "radius": "radius-sm"  }
+  },
+
+  "typography": {
+    "//": "Shared type tokens across sizes (fontSize is per-size above).",
+    "fontFamily": "font-sans",
+    "fontWeight": "font-weight-medium",
+    "lineHeight": "leading-none"
+  },
+
   "states": ["default", "hover", "active", "focus-visible", "disabled", "loading"],
   "a11y": {
-    "role": "button",
-    "nativeElement": true,
-    "focusVisible": true,
+    "role": "button", "nativeElement": true, "focusVisible": true,
     "keyboardActivate": ["Enter", "Space"],
     "disabled": { "usesNativeDisabled": true, "ariaDisabledWhenAsChild": true },
     "loading": { "ariaBusy": true, "blocksInteraction": true },
-    "iconOnly": { "requiresAriaLabel": true, "note": "size 'icon' has no text — aria-label is mandatory." },
+    "iconOnly": { "requiresAriaLabel": true },
     "minHitTarget": "44x44"
   }
 }

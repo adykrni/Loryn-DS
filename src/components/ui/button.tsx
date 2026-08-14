@@ -18,8 +18,10 @@ export const BUTTON_CVA_SIZES = ["sm", "md", "lg", "icon"] as const
 
 const buttonVariants = cva(
   [
-    "group/button inline-flex shrink-0 items-center justify-center gap-2 rounded-md border bg-clip-padding",
-    "text-sm font-medium whitespace-nowrap transition-colors outline-none select-none",
+    "group/button inline-flex shrink-0 items-center justify-center bg-clip-padding",
+    "rounded-md border font-sans leading-none whitespace-nowrap",
+    "font-[var(--font-weight-medium)]",
+    "transition-colors outline-none select-none",
     "focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50",
     "disabled:pointer-events-none disabled:opacity-50",
     "aria-busy:pointer-events-none",
@@ -35,14 +37,15 @@ const buttonVariants = cva(
         tertiary:
           "border-transparent bg-transparent text-primary hover:bg-primary-subtle",
         outline:
-          "border-border-strong bg-transparent text-foreground hover:bg-muted",
-        ghost: "border-transparent bg-transparent text-foreground hover:bg-muted",
+          "border-[length:var(--border-1)] border-border-strong bg-transparent text-foreground hover:bg-muted",
+        ghost:
+          "border-transparent bg-transparent text-foreground hover:bg-muted",
       },
       size: {
-        sm: "min-h-11 min-w-11 px-3 text-sm [&_svg:not([class*='size-'])]:size-4",
-        md: "min-h-11 min-w-11 px-4 text-sm",
-        lg: "min-h-11 min-w-11 px-5 text-base",
-        icon: "size-11 min-h-11 min-w-11 p-0 [&_svg:not([class*='size-'])]:size-4",
+        sm: "h-8 min-h-11 min-w-11 gap-1.5 px-3 text-xs rounded-sm",
+        md: "h-10 min-h-11 min-w-11 gap-2 px-4 text-sm rounded-sm",
+        lg: "h-12 min-h-11 min-w-11 gap-2.5 px-5 text-base rounded-lg",
+        icon: "size-10 min-h-11 min-w-11 gap-0 px-0 rounded-sm",
       },
     },
     defaultVariants: {
