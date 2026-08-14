@@ -9,7 +9,7 @@ type Story = StoryObj<typeof HoverCard>
 export const Default: Story = {
   render: () => (
     <HoverCard>
-      <HoverCardTrigger asChild><Button variant="link">@loryn</Button></HoverCardTrigger>
+      <HoverCardTrigger asChild><Button variant="tertiary">@loryn</Button></HoverCardTrigger>
       <HoverCardContent className="w-64">The Loryn design system — contract-first components.</HoverCardContent>
     </HoverCard>
   ),

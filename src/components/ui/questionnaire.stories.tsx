@@ -8,7 +8,7 @@ type Story = StoryObj<typeof Questionnaire>
 export const Default: Story = {
   render: () => (
     <Questionnaire className="max-w-md">
-      <QuestionnaireItem>
+      <QuestionnaireItem name="feedback">
         <QuestionnaireTitle>Quick survey</QuestionnaireTitle>
         <QuestionnaireDescription>Help us improve the design system.</QuestionnaireDescription>
       </QuestionnaireItem>

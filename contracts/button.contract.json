@@ -1,28 +1,54 @@
 {
   "name": "Button",
+  "version": "1.1.0",
+  "description": "Primary interactive control for actions and submissions.",
+  "element": "button",
   "props": {
     "variant": {
       "type": "enum",
-      "values": ["primary", "secondary", "ghost"],
+      "values": ["primary", "secondary", "tertiary", "outline", "ghost", "destructive"],
       "default": "primary"
     },
     "size": {
       "type": "enum",
-      "values": ["sm", "md", "lg"],
+      "values": ["sm", "md", "lg", "icon"],
       "default": "md"
     },
-    "disabled": {
+    "disabled": { "type": "boolean", "default": false },
+    "loading": {
       "type": "boolean",
-      "default": false
+      "default": false,
+      "description": "Shows a spinner, sets aria-busy, and blocks interaction."
+    },
+    "asChild": {
+      "type": "boolean",
+      "default": false,
+      "description": "Render as a Radix Slot, passing button semantics to the child element."
     }
   },
   "tokens": {
-    "background": "component.primary",
-    "radius": "core.radius.base"
+    "variants": {
+      "primary":     { "bg": "primary", "fg": "primary-foreground", "hover": "primary-hover", "active": "primary-active" },
+      "secondary":   { "bg": "secondary", "fg": "secondary-foreground", "hover": "secondary-hover" },
+      "tertiary":    { "fg": "primary", "hoverBg": "primary-subtle" },
+      "outline":     { "border": "border-strong", "fg": "foreground", "hoverBg": "muted" },
+      "ghost":       { "fg": "foreground", "hoverBg": "muted" },
+      "destructive": { "bg": "danger", "fg": "danger-foreground", "hover": "danger-hover" }
+    },
+    "shared": {
+      "focusRing": "ring",
+      "radius": "radius-md"
+    }
   },
+  "states": ["default", "hover", "active", "focus-visible", "disabled", "loading"],
   "a11y": {
     "role": "button",
+    "nativeElement": true,
     "focusVisible": true,
-    "disabledAriaDisabled": true
+    "keyboardActivate": ["Enter", "Space"],
+    "disabled": { "usesNativeDisabled": true, "ariaDisabledWhenAsChild": true },
+    "loading": { "ariaBusy": true, "blocksInteraction": true },
+    "iconOnly": { "requiresAriaLabel": true, "note": "size 'icon' has no text — aria-label is mandatory." },
+    "minHitTarget": "44x44"
   }
 }

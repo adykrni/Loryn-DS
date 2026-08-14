@@ -1,14 +1,17 @@
 import type { Preview } from '@storybook/nextjs-vite'
 import { TooltipProvider } from "@/components/ui/tooltip"
+import { geistMono, notoSansDisplay } from "@/lib/fonts"
 
 import "../src/app/globals.css"
 
 const preview: Preview = {
   decorators: [
     (Story) => (
-      <TooltipProvider>
-        <Story />
-      </TooltipProvider>
+      <div className={`${notoSansDisplay.variable} ${geistMono.variable} font-sans antialiased`}>
+        <TooltipProvider>
+          <Story />
+        </TooltipProvider>
+      </div>
     ),
   ],
   parameters: {

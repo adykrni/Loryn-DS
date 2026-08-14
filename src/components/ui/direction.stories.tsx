@@ -6,8 +6,8 @@ export default meta
 type Story = StoryObj<typeof DirectionProvider>
 
 export const LTR: Story = {
-  render: () => <DirectionProvider direction="ltr"><p className="p-4">Left-to-right layout</p></DirectionProvider>,
+  render: () => <DirectionProvider dir="ltr"><p className="p-4">Left-to-right layout</p></DirectionProvider>,
 }
 export const RTL: Story = {
-  render: () => <DirectionProvider direction="rtl"><p className="p-4">Right-to-left layout</p></DirectionProvider>,
+  render: () => <DirectionProvider dir="rtl"><p className="p-4">Right-to-left layout</p></DirectionProvider>,
 }

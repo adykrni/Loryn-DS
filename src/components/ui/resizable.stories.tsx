@@ -7,7 +7,7 @@ type Story = StoryObj<typeof ResizablePanelGroup>
 
 export const Default: Story = {
   render: () => (
-    <ResizablePanelGroup direction="horizontal" className="min-h-[200px] max-w-md rounded-lg border">
+    <ResizablePanelGroup orientation="horizontal" className="min-h-[200px] max-w-md rounded-lg border">
       <ResizablePanel defaultSize={50}><div className="flex h-full items-center justify-center p-6">Panel A</div></ResizablePanel>
       <ResizableHandle />
       <ResizablePanel defaultSize={50}><div className="flex h-full items-center justify-center p-6">Panel B</div></ResizablePanel>
